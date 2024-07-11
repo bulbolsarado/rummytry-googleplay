@@ -25,8 +25,13 @@ document.addEventListener('DOMContentLoaded', function() {
             channelCode: code
         };
         let copyStr = JSON.stringify(copyObj);
-        copyText(copyStr, function() {
-            console.log('Copy successful', copyStr);
+
+        copyText(copyStr, function(success) {
+            if (success) {
+                console.log('Copy successful:', copyStr);
+            } else {
+                console.error('Copy failed');
+            }
         });
 
         let fbclid = getQueryVariable("fbclid");
@@ -67,12 +72,14 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             var successful = document.execCommand('copy');
             if (successful) {
-                callback();
+                callback(true);  // Notify that the copy was successful
             } else {
                 console.error('Copying text command was unsuccessful');
+                callback(false); // Notify that the copy was unsuccessful
             }
         } catch (err) {
-            console.error('Error in copying text: ', err);
+            console.error('Error in copying text:', err);
+            callback(false); // Notify that the copy was unsuccessful
         }
 
         document.body.removeChild(textArea);
