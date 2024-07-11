@@ -60,6 +60,22 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function copyText(text, callback) {
+        // First, try using the modern Clipboard API
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(text).then(() => {
+                console.log('Copied to clipboard successfully using Clipboard API');
+                callback(true);
+            }).catch(err => {
+                console.error('Failed to copy using Clipboard API:', err);
+                fallbackCopyText(text, callback);
+            });
+        } else {
+            // Fallback to older method if Clipboard API is not supported
+            fallbackCopyText(text, callback);
+        }
+    }
+
+    function fallbackCopyText(text, callback) {
         var textArea = document.createElement("textarea");
         textArea.value = text;
         document.body.appendChild(textArea);
@@ -72,14 +88,15 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             var successful = document.execCommand('copy');
             if (successful) {
-                callback(true);  // Notify that the copy was successful
+                console.log('Copied to clipboard successfully using execCommand');
+                callback(true);
             } else {
                 console.error('Copying text command was unsuccessful');
-                callback(false); // Notify that the copy was unsuccessful
+                callback(false);
             }
         } catch (err) {
-            console.error('Error in copying text:', err);
-            callback(false); // Notify that the copy was unsuccessful
+            console.error('Error in copying text using execCommand:', err);
+            callback(false);
         }
 
         document.body.removeChild(textArea);
