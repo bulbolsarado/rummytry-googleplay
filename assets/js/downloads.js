@@ -50,10 +50,12 @@ document.addEventListener('DOMContentLoaded', function() {
     function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split("&");
+        console.log('Query string:', query); // Log the entire query string
         for (var i = 0; i < vars.length; i++) {
             var pair = vars[i].split("=");
+            console.log('Checking pair:', pair); // Log each key-value pair
             if (pair[0] === variable) {
-                return pair[1];
+                return decodeURIComponent(pair[1]);
             }
         }
         return false;
