@@ -1,0 +1,20 @@
+.material-symbols-outlined.hidden {
+    display: none;
+}
+
+body {
+    font-family: Roboto, Helvetica, Arial, sans-serif;
+}
+
+span .globe, span .mail {
+    margin-right: 16px;
+}
+
+
+
+
+.GrpFfc {
+    align-self: center;
+    width: 24px;
+    height: 24px !important;
+}

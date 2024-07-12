@@ -36,14 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         let fbclid = getQueryVariable("fbclid");
         var golink = "https://xjpklccossyd06.zxcvrfrec.com/Rummytry/RummyTry-channel-9000000.apk";
-        // console.log('fbclid', fbclid);
-
-        if (fbclid && fbclid.length > 1) {
-            // Channel APK this URL
-            window.location.href = golink;
-        } else {
-            window.location.href = golink;
-        }
+        console.log('fbclid', fbclid);
 
         if (isiOS) {
             window.location.href = golink;
@@ -57,10 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
     function getQueryVariable(variable) {
         var query = window.location.search.substring(1);
         var vars = query.split("&");
-        // console.log('Query string:', query); // Log the entire query string
+        console.log('Query string:', query); // Log the entire query string
         for (var i = 0; i < vars.length; i++) {
             var pair = vars[i].split("=");
-            // console.log('Checking pair:', pair); // Log each key-value pair
+            console.log('Checking pair:', pair); // Log each key-value pair
             if (pair[0] === variable) {
                 return decodeURIComponent(pair[1]);
             }
