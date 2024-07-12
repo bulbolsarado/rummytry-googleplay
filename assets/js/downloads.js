@@ -104,3 +104,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.body.removeChild(textArea);
     }
 });
+
+window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.S3WLMd');
+    if (window.scrollY > 0) {
+        nav.classList.add('QKrU5e');
+    } else {
+        nav.classList.remove('QKrU5e');
+    }
+});

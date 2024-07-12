@@ -113,6 +113,10 @@
 .Mhrnjf .nm4vBd, .Mhrnjf .Q3MhI {
     border-radius: 24% !important;
 }
+
+.QKrU5e {
+    box-shadow: 0 4px 5px 0 rgba(0, 0, 0, .14), 0 1px 10px 0 rgba(0, 0, 0, .12), 0 2px 4px -1px rgba(0, 0, 0, .2);
+}
 </style>
 
 </head>
@@ -1707,29 +1711,29 @@ initAft()</script>
 <script src="./assets/js/downloads.js"></script>
 <script src="./assets/js/scripted.js"></script>
 <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    var button = document.getElementById('toggleIconButton');
-    var iconDown = document.getElementById('ico-arrow-down');
-    var iconUp = document.getElementById('ico-arrow-up');
-    var developerContacts = document.getElementById('developer-contacts');
+    document.addEventListener('DOMContentLoaded', function() {
+        var button = document.getElementById('toggleIconButton');
+        var iconDown = document.getElementById('ico-arrow-down');
+        var iconUp = document.getElementById('ico-arrow-up');
+        var developerContacts = document.getElementById('developer-contacts');
 
 
-    // Function to handle click event on the icon
-    iconDown.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevents event from bubbling up and triggering button's mouseleave
-        iconDown.classList.add('hidden');
-        iconUp.classList.remove('hidden');
-        developerContacts.classList.remove('hidden');
+        // Function to handle click event on the icon
+        iconDown.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevents event from bubbling up and triggering button's mouseleave
+            iconDown.classList.add('hidden');
+            iconUp.classList.remove('hidden');
+            developerContacts.classList.remove('hidden');
+        });
+
+        // Function to handle click event to hide information
+        iconUp.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevents event from bubbling up and triggering button's mouseleave
+            iconDown.classList.remove('hidden');
+            iconUp.classList.add('hidden');
+            developerContacts.classList.add('hidden');
+        });
     });
-
-    // Function to handle click event to hide information
-    iconUp.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevents event from bubbling up and triggering button's mouseleave
-        iconDown.classList.remove('hidden');
-        iconUp.classList.add('hidden');
-        developerContacts.classList.add('hidden');
-    });
-});
 </script>
 <script>
   document.addEventListener('DOMContentLoaded', function () {
@@ -1743,7 +1747,21 @@ initAft()</script>
                 dropdownMenu.style.display = 'none';
             }
         });
-    });</script>
+    });
+</script>
+<script>
+    
+    window.addEventListener('scroll', function() {
+    const nav = document.querySelector('.S3WLMd');
+    if (window.scrollY > 0) {
+        nav.classList.add('QKrU5e');
+    } else {
+        nav.classList.remove('QKrU5e');
+    }
+});
+    </script>
+
+
 </body><!--yDmH0d-->
 </html>
 
